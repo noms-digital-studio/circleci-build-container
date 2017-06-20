@@ -51,7 +51,9 @@ RUN gem install bundler
 
 #Install phantomjs for headless browser testing
 RUN apt-get install -y phantomjs
-RUN echo "alias phantomjs='phantomjs -platform offscreen'" >> /home/circleci/.bashrc
+RUN mv /usr/bin/phantomjs /usr/bin/phantomjs.bin
+RUN printf '#!/usr/bin/env bash\n\n/usr/bin/phantomjs.bin -platform offscreen $@\n'> /usr/bin/phantomjs
+RUN chmod +x /usr/bin/phantomjs
 
 #Setup python
 RUN apt-get install -y python-pip python3-pip
