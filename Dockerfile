@@ -46,7 +46,7 @@ RUN apt-get update
 RUN apt-get install -y yarn
 
 #Setup ruby
-RUN apt-get install -y ruby
+RUN apt-get install -y ruby ruby-build
 RUN gem install bundler
 
 #Setup python
