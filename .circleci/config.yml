@@ -1,0 +1,16 @@
+version: 2
+
+jobs:
+    build:
+        working_directory: ~/circleci-build-container
+        docker:
+            - image: mojdigitalstudio/circleci-build-container
+        steps:
+            - checkout
+            - setup_remote_docker
+            - run:
+                name: Build the container
+                command: make build
+            - run:
+                name: Push the container
+                command: make push
