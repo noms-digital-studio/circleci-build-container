@@ -49,6 +49,9 @@ RUN apt-get install -y yarn
 RUN apt-get install -y --allow-unauthenticated ruby ruby-build ruby-dev
 RUN gem install bundler
 
+#Install phantomjs for headless browser testing
+RUN apt-get install -y phantomjs
+
 #Setup python
 RUN apt-get install -y python-pip python3-pip
 
